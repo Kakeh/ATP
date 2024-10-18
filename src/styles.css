@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+.form-group {
+    padding: 5px;
+}
+
+.btn {
+    margin-right: 5px;
+}
+
+.top-player {
+    color: #308ecd;
+    font-size: large;
+    
+}
+
+.top-number {
+    height: 25px;
+    width: 25px;
+    background-color: #777777 ;
+    color: white;
+    border: #777777 1px solid ;
+    border-radius: 50%;
+}

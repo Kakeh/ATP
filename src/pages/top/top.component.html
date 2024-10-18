@@ -1,0 +1,23 @@
+<div class="container mt-4">
+    <h3 class="mb-3">Top Players</h3>
+    
+    <ul class="list-unstyled">
+      <li *ngFor="let player of topPlayers; let i = index" class="d-flex align-items-center mb-2">
+        <span class="badge bg-secondary me-2">{{ i + 1 }}</span>
+        <a routerLink="/player/{{player.id}}" class="text-primary">{{ player.name }}</a>
+      </li>
+    </ul>
+  
+    <h4 class="mt-4">Player Search</h4>
+    <div class="mb-3">
+      <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="searchPlayers()" placeholder="Search players">
+    </div>
+    
+
+    <ul class="list-group" *ngIf="players.length > 0">
+      <li *ngFor="let player of players" class="list-group-item">
+        <a routerLink="/player/{{player.id}}">{{ player.name }}</a>
+      </li>
+    </ul>
+  </div>
+  

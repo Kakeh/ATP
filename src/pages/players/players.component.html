@@ -1,0 +1,103 @@
+<div class="container mt-4">
+  <h2 class="text-center">Players</h2>
+
+  <button class="btn btn-primary mb-3" (click)="toggleAddForm()">
+    Show/Hide AddForm
+  </button>
+
+  <div *ngIf="isFormVisible" class="mb-4">
+    <form [formGroup]="playerForm">
+      <div class="form-group">
+        <label for="name">name:</label>
+        <input
+          type="text"
+          formControlName="name"
+          class="form-control"
+          id="name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="country">country:</label>
+        <input
+          type="text"
+          formControlName="country"
+          class="form-control"
+          id="country"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="age">age:</label>
+        <input
+          type="number"
+          min="16"
+          formControlName="age"
+          class="form-control"
+          id="age"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="points">points:</label>
+        <input
+          type="number"
+          formControlName="points"
+          class="form-control"
+          id="points"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="tournamentsPlayed">tournaments played:</label>
+        <input
+          type="number"
+          formControlName="tournamentsPlayed"
+          class="form-control"
+          id="tournamentsPlayed"
+        />
+      </div>
+
+      <div class="form-group">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="playerForm.invalid"
+          (click)="addPlayer()"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Rank</th>
+        <th scope="col">Name</th>
+        <th scope="col">Country</th>
+        <th scope="col">Age</th>
+        <th scope="col">Points</th>
+        <th scope="col">Tournaments Played</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>
+          <a [routerLink]="['/player', player.id]">{{ player.name }}</a>
+        </td>
+        <td>{{ player.country }}</td>
+        <td>{{ player.age }}</td>
+        <td>{{ player.points }}</td>
+        <td style="text-align: center">{{ player.tournamentsPlayed }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deletePlayer(player.id)">
+            X
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

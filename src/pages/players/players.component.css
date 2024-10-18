@@ -1,0 +1,13 @@
+.container {
+    max-width: 900px;
+  }
+  
+  table {
+    margin-top: 20px;
+  }
+  
+  button.btn-danger {
+    font-weight: bold;
+    padding: 0 10px;
+  }
+  
